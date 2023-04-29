@@ -6,8 +6,8 @@ from bs4 import BeautifulSoup as bs
 from mistletoe import Document, HTMLRenderer
 from yake import yake
 
-
 kw_extractor = yake.KeywordExtractor()
+
 
 def translate(text, lang='en'):
     IAM_TOKEN = 't1.9euelZqMycmKkI6ans7NksyQl4-Oy-3rnpWaj5CZkorPip3Hzo-Zi8ady5zl8_cHaE5d-e8ifmhu_N3z90cWTF357yJ-aG78.aaM4NmCCK9fvSI6UlMS_XcZsPIpdqKOJRDXyIjGPydK8GzQxIsFivSO0xChME6fCwX4C4zSzvzq1tQO9kmr0AA'
@@ -24,8 +24,10 @@ def translate(text, lang='en'):
         "Authorization": "Bearer {0}".format(IAM_TOKEN)
     }
 
-    rest = requests.post('https://translate.api.cloud.yandex.net/translate/v2/translate', json=body, headers=headers).json()
+    rest = requests.post('https://translate.api.cloud.yandex.net/translate/v2/translate', json=body,
+                         headers=headers).json()
     return rest['translations'][0]['text']
+
 
 def format_list(lst):
     max_depth = 0
@@ -59,7 +61,7 @@ def parseList(tag):
 
 def read_md(file):
     text_file = open("file.md", "w")
-    text_file.write(base64.b64decode(file).decode().replace('\n',''))
+    text_file.write(base64.b64decode(file).decode().replace('\n', ''))
     text_file.close()
     with open("file.md", 'r') as file1:
         with HTMLRenderer() as renderer:
