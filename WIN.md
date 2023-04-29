@@ -1,0 +1,11 @@
+- Beakend
+    - Django
+    - Flask
+    - Pisja popa
+        - API
+        - Chicha
+    - FastAPI la la la
+- Frontend
+    - JS
+    - CSS
+        - HTML 
