@@ -1,10 +1,6 @@
-import aiohttp
 from fastapi import FastAPI
-import yake
 from pydantic import BaseModel
 from tools import read_md, make_json
-
-kw_extractor = yake.KeywordExtractor()
 
 
 class Item(BaseModel):
